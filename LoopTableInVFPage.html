@@ -1,0 +1,93 @@
+<!-- Prints out all Individual Owners -->
+<apex:outputPanel rendered="{!(publicDetails.hasOwnershipInformation)}">
+    <ul class="slds-p-left_medium">
+        <li class="slds-p-left_medium">
+            <h2>Individual Owners</h2>
+            <table class="custom-grid" style="margin-top:10px;border-collapse:collapse;" border="1px">
+                <thead>
+                    <tr>
+                        <th>
+                            <p class="txt-weight_semibold"> Name</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> City</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> State</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> Zip</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> Position</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> % of Ownership</p>
+                        </th>
+                        <th>
+                            <p class="txt-weight_semibold"> U.S. Citizen</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Show all Application Contacts -->
+                    <apex:repeat value="{!publicDetails.ownershipSection}" var="ownershipSection">
+                        <apex:outputText rendered="{!(!(ownershipSection.isCompanyInformation))}">
+                            <tr>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.name}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.city}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.state}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.zip}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.position}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.ownership}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.usCitizen}</p>
+                                </td>
+                            </tr>
+                        </apex:outputText>
+                    </apex:repeat>
+                    <!-- Show all Application Owners -->
+                    <apex:repeat value="{!publicDetails.applicationOwnershipSection}" var="ownershipSection">
+                        <apex:outputText rendered="{!(!(ownershipSection.isCompanyInformation))}">
+                            <tr>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.name}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.city}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.state}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.zip}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.position}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.ownership}</p>
+                                </td>
+                                <td>
+                                    <p class="slds-p-top_x-small">{!ownershipSection.usCitizen}</p>
+                                </td>
+                            </tr>
+                        </apex:outputText>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</apex:outputPanel>
